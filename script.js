@@ -27,6 +27,105 @@ document.addEventListener("DOMContentLoaded", () => {
   const locationLink = document.querySelector(".location-link[href='#']");
   locationLink?.addEventListener("click", (event) => event.preventDefault());
 
+  /* Efecto ambiental: luciérnagas y halo lunar con movimiento muy ligero. */
+  const hero = document.querySelector(".hero");
+  if (hero && !prefersReducedMotion) {
+    const lightLayer = document.createElement("div");
+    lightLayer.className = "ambient-lights";
+    lightLayer.setAttribute("aria-hidden", "true");
+
+    const lightCount = window.innerWidth < 700 ? 9 : 16;
+    for (let index = 0; index < lightCount; index += 1) {
+      const light = document.createElement("span");
+      light.className = "firefly";
+      light.style.setProperty("--x", `${8 + Math.random() * 84}%`);
+      light.style.setProperty("--y", `${8 + Math.random() * 80}%`);
+      light.style.setProperty("--size", `${2 + Math.random() * 2.4}px`);
+      light.style.setProperty("--duration", `${5.5 + Math.random() * 5}s`);
+      light.style.setProperty("--delay", `${Math.random() * -8}s`);
+      light.style.setProperty("--drift", `${-18 + Math.random() * 36}px`);
+      lightLayer.appendChild(light);
+    }
+    hero.appendChild(lightLayer);
+
+    if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+      hero.addEventListener("pointermove", (event) => {
+        const bounds = hero.getBoundingClientRect();
+        const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 12;
+        const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 12;
+        hero.style.setProperty("--parallax-x", `${x}px`);
+        hero.style.setProperty("--parallax-y", `${y}px`);
+      });
+      hero.addEventListener("pointerleave", () => {
+        hero.style.setProperty("--parallax-x", "0px");
+        hero.style.setProperty("--parallax-y", "0px");
+      });
+    }
+  }
+
+  /* Galería ampliable: solo se activa cuando las fotografías reales existen. */
+  const galleryImages = [...document.querySelectorAll(".gallery__item img")];
+  if (galleryImages.length) {
+    const lightbox = document.createElement("div");
+    lightbox.className = "lightbox";
+    lightbox.hidden = true;
+    lightbox.setAttribute("role", "dialog");
+    lightbox.setAttribute("aria-modal", "true");
+    lightbox.setAttribute("aria-label", "Fotografía ampliada");
+    lightbox.innerHTML = `
+      <button class="lightbox__close" type="button" aria-label="Cerrar fotografía">×</button>
+      <img class="lightbox__image" alt="">
+      <p class="lightbox__caption"></p>
+    `;
+    document.body.appendChild(lightbox);
+
+    const expandedImage = lightbox.querySelector(".lightbox__image");
+    const caption = lightbox.querySelector(".lightbox__caption");
+    const closeButton = lightbox.querySelector(".lightbox__close");
+    let previousFocus = null;
+
+    const closeLightbox = () => {
+      lightbox.classList.remove("is-open");
+      document.body.classList.remove("lightbox-open");
+      window.setTimeout(() => { lightbox.hidden = true; }, prefersReducedMotion ? 0 : 260);
+      previousFocus?.focus();
+    };
+
+    galleryImages.forEach((image) => {
+      image.tabIndex = 0;
+      image.setAttribute("role", "button");
+      image.setAttribute("aria-label", `${image.alt}. Ampliar fotografía`);
+
+      const openLightbox = () => {
+        if (!image.naturalWidth || image.classList.contains("image-missing")) return;
+        previousFocus = image;
+        expandedImage.src = image.currentSrc || image.src;
+        expandedImage.alt = image.alt;
+        caption.textContent = image.alt;
+        lightbox.hidden = false;
+        document.body.classList.add("lightbox-open");
+        requestAnimationFrame(() => lightbox.classList.add("is-open"));
+        closeButton.focus();
+      };
+
+      image.addEventListener("click", openLightbox);
+      image.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openLightbox();
+        }
+      });
+    });
+
+    closeButton.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !lightbox.hidden) closeLightbox();
+    });
+  }
+
   const form = document.querySelector("form[name='confirmacion-boda']");
   if (!form) return;
 
