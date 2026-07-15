@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[NOMBRE] &amp; [NOMBRE] | Nuestra boda</title>
+  <meta name="description" content="Acompáñanos a celebrar la boda de [NOMBRE] y [NOMBRE] el [FECHA DE LA BODA].">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#183B2B">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="[NOMBRE] &amp; [NOMBRE] | Nuestra boda">
+  <meta property="og:description" content="Nos casamos y nos hará mucha ilusión celebrarlo contigo.">
+  <meta property="og:image" content="assets/images/hero-boda.webp">
+  <!-- CAMBIAR: descomentar y añadir assets/icons/favicon.svg cuando exista. -->
+  <!-- <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&amp;family=Montserrat:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="hero" id="inicio">
+    <!-- IMAGEN: el fondo principal usa assets/images/hero-boda.webp (ver styles.css). -->
+    <div class="hero__veil" aria-hidden="true"></div>
+    <div class="hero__content">
+      <p class="eyebrow hero__eyebrow">Nos casamos</p>
+      <div class="name-frame">
+        <svg class="name-frame__branch name-frame__branch--left" viewBox="0 0 94 180" aria-hidden="true">
+          <path d="M83 171C45 134 28 83 30 12"/>
+          <path d="M43 91C18 85 7 67 6 48C26 54 40 68 43 91Z"/>
+          <path d="M35 61C52 50 58 34 55 19C41 26 34 41 35 61Z"/>
+          <path d="M57 125C32 124 17 109 12 91C33 94 49 105 57 125Z"/>
+          <path d="M65 145C78 132 80 116 74 103C61 113 57 127 65 145Z"/>
+        </svg>
+        <!-- CAMBIAR: nombres de la pareja -->
+        <h1>[NOMBRE] <span>&amp;</span> [NOMBRE]</h1>
+        <svg class="name-frame__branch name-frame__branch--right" viewBox="0 0 94 180" aria-hidden="true">
+          <path d="M83 171C45 134 28 83 30 12"/>
+          <path d="M43 91C18 85 7 67 6 48C26 54 40 68 43 91Z"/>
+          <path d="M35 61C52 50 58 34 55 19C41 26 34 41 35 61Z"/>
+          <path d="M57 125C32 124 17 109 12 91C33 94 49 105 57 125Z"/>
+          <path d="M65 145C78 132 80 116 74 103C61 113 57 127 65 145Z"/>
+        </svg>
+      </div>
+      <!-- CAMBIAR: fecha de la boda -->
+      <p class="hero__date">[FECHA DE LA BODA]</p>
+      <a class="button button--light" href="#confirmacion">Confirmar asistencia</a>
+    </div>
+    <a class="hero__scroll" href="#contenido" aria-label="Ir al contenido">
+      <span aria-hidden="true"></span>
+    </a>
+  </header>
+
+  <main id="contenido">
+    <section class="intro section reveal" aria-labelledby="intro-title">
+      <div class="intro__image media-frame media-frame--portrait">
+        <!-- IMAGEN: colocar la fotografía vertical en assets/images/pareja-1.webp. -->
+        <img src="assets/images/pareja-1.webp" alt="La pareja en un entorno natural" width="800" height="1100" loading="lazy">
+        <span class="media-placeholder" aria-hidden="true">Nuestra historia</span>
+      </div>
+      <div class="intro__copy">
+        <p class="eyebrow">Juntos, siempre</p>
+        <h2 id="intro-title">Queremos celebrarlo contigo</h2>
+        <div class="flourish" aria-hidden="true"><span></span></div>
+        <!-- CAMBIAR: texto de presentación si se desea -->
+        <p>Hay momentos que merecen ser compartidos con las personas que forman parte de nuestra historia. Nos haría mucha ilusión celebrar este día contigo.</p>
+        <p class="signature">Con todo nuestro cariño</p>
+      </div>
+    </section>
+
+    <section class="details reveal" aria-labelledby="details-title">
+      <!-- IMAGEN: fondo opcional en assets/images/fondo-bosque.webp (ver styles.css). -->
+      <div class="details__inner section">
+        <p class="eyebrow eyebrow--light">El gran día</p>
+        <h2 id="details-title">Nuestra boda</h2>
+        <div class="details__grid">
+          <article class="detail-card">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M12 8v7M36 8v7M8 19h32M10 12h28a2 2 0 0 1 2 2v25H8V14a2 2 0 0 1 2-2Z"/><path d="M15 26h5M28 26h5M15 33h5M28 33h5"/></svg>
+            <h3>Fecha</h3>
+            <!-- CAMBIAR: fecha de la boda -->
+            <p>[FECHA DE LA BODA]</p>
+          </article>
+          <article class="detail-card">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="16"/><path d="M24 14v11l8 5"/></svg>
+            <h3>Hora</h3>
+            <!-- CAMBIAR: hora de la boda -->
+            <p>[HORA]</p>
+          </article>
+          <article class="detail-card detail-card--wide">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M38 21c0 10-14 21-14 21S10 31 10 21a14 14 0 1 1 28 0Z"/><circle cx="24" cy="21" r="5"/></svg>
+            <h3>Lugar</h3>
+            <!-- CAMBIAR: ubicación y dirección -->
+            <p>[NOMBRE DEL LUGAR]</p>
+            <p class="detail-card__small">[DIRECCIÓN]</p>
+          </article>
+        </div>
+        <!-- CAMBIAR: sustituir # por el enlace definitivo de Google Maps. -->
+        <a class="button button--outline-light location-link" href="#">Ver ubicación</a>
+      </div>
+    </section>
+
+    <section class="gallery section reveal" aria-labelledby="gallery-title">
+      <div class="section-heading">
+        <p class="eyebrow">Instantes nuestros</p>
+        <h2 id="gallery-title">Una historia compartida</h2>
+        <div class="flourish" aria-hidden="true"><span></span></div>
+      </div>
+      <div class="gallery__grid">
+        <figure class="media-frame gallery__item gallery__item--tall">
+          <!-- IMAGEN: assets/images/pareja-1.webp. -->
+          <img src="assets/images/pareja-1.webp" alt="La pareja compartiendo un momento especial" width="800" height="1100" loading="lazy">
+          <span class="media-placeholder" aria-hidden="true">01</span>
+        </figure>
+        <figure class="media-frame gallery__item">
+          <!-- IMAGEN: assets/images/pareja-2.webp. -->
+          <img src="assets/images/pareja-2.webp" alt="Un recuerdo de la pareja" width="1000" height="700" loading="lazy">
+          <span class="media-placeholder" aria-hidden="true">02</span>
+        </figure>
+        <figure class="media-frame gallery__item">
+          <!-- IMAGEN: assets/images/pareja-3.webp. -->
+          <img src="assets/images/pareja-3.webp" alt="La pareja paseando juntos" width="1000" height="700" loading="lazy">
+          <span class="media-placeholder" aria-hidden="true">03</span>
+        </figure>
+      </div>
+    </section>
+
+    <section class="rsvp reveal" id="confirmacion" aria-labelledby="rsvp-title">
+      <div class="rsvp__ornament rsvp__ornament--left" aria-hidden="true"></div>
+      <div class="rsvp__ornament rsvp__ornament--right" aria-hidden="true"></div>
+      <div class="rsvp__inner">
+        <div class="section-heading">
+          <p class="eyebrow">R.S.V.P.</p>
+          <h2 id="rsvp-title">¿Nos acompañas?</h2>
+          <div class="flourish" aria-hidden="true"><span></span></div>
+          <p>Por favor, confirma tu asistencia. Nos ayudará mucho a preparar cada detalle.</p>
+        </div>
+
+        <form name="confirmacion-boda" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/gracias.html" novalidate>
+          <input type="hidden" name="form-name" value="confirmacion-boda">
+          <p class="hidden-field">
+            <label>No rellenar: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+          </p>
+
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="nombre">Nombre y apellidos <span aria-hidden="true">*</span></label>
+              <input id="nombre" name="nombre" type="text" autocomplete="name" required aria-describedby="error-nombre">
+              <span class="field-error" id="error-nombre"></span>
+            </div>
+            <div class="form-field">
+              <label for="telefono">Teléfono <span aria-hidden="true">*</span></label>
+              <input id="telefono" name="telefono" type="tel" autocomplete="tel" required aria-describedby="error-telefono">
+              <span class="field-error" id="error-telefono"></span>
+            </div>
+            <div class="form-field form-field--full">
+              <label for="email">Correo electrónico <span aria-hidden="true">*</span></label>
+              <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="error-email">
+              <span class="field-error" id="error-email"></span>
+            </div>
+          </div>
+
+          <fieldset class="attendance" aria-describedby="error-asistencia">
+            <legend>¿Podrás acompañarnos? <span aria-hidden="true">*</span></legend>
+            <div class="attendance__options">
+              <label class="choice-card">
+                <input type="radio" name="asistencia" value="Sí, allí estaré" required>
+                <span><span class="choice-card__mark" aria-hidden="true"></span>Sí, allí estaré</span>
+              </label>
+              <label class="choice-card">
+                <input type="radio" name="asistencia" value="No podré asistir" required>
+                <span><span class="choice-card__mark" aria-hidden="true"></span>No podré asistir</span>
+              </label>
+            </div>
+            <span class="field-error" id="error-asistencia"></span>
+          </fieldset>
+
+          <div class="conditional-fields" id="campos-asistencia" hidden>
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="numero_asistentes">Número total de asistentes <span aria-hidden="true">*</span></label>
+                <select id="numero_asistentes" name="numero_asistentes" autocomplete="off" aria-describedby="error-numero_asistentes">
+                  <option value="">Selecciona una opción</option>
+                  <option value="1">1 persona</option>
+                  <option value="2">2 personas</option>
+                  <option value="3">3 personas</option>
+                  <option value="4">4 personas</option>
+                </select>
+                <span class="field-error" id="error-numero_asistentes"></span>
+              </div>
+              <div class="form-field conditional-fields" id="campo-acompanante" hidden>
+                <label for="acompanante">Nombre del acompañante</label>
+                <input id="acompanante" name="acompanante" type="text" autocomplete="off">
+              </div>
+              <div class="form-field form-field--full">
+                <label for="alergias">Alergias o necesidades alimentarias</label>
+                <textarea id="alergias" name="alergias" rows="4" aria-describedby="ayuda-alergias"></textarea>
+                <small id="ayuda-alergias">Indícanos cualquier alergia, intolerancia o necesidad alimentaria que debamos tener en cuenta.</small>
+              </div>
+              <div class="form-field form-field--full">
+                <label for="cancion">Canción que no puede faltar</label>
+                <input id="cancion" name="cancion" type="text" placeholder="Canción o artista" autocomplete="off">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="comentarios">Comentarios</label>
+            <textarea id="comentarios" name="comentarios" rows="4" placeholder="¿Hay algo más que quieras contarnos?"></textarea>
+          </div>
+
+          <div class="privacy-field">
+            <label>
+              <input id="privacidad" name="privacidad" type="checkbox" value="Aceptada" required aria-describedby="error-privacidad nota-legal">
+              <span>He leído la información sobre privacidad y acepto que mis datos se utilicen para gestionar la asistencia a la boda.</span>
+            </label>
+            <span class="field-error" id="error-privacidad"></span>
+            <!-- CAMBIAR: sustituir esta nota por la información legal definitiva. -->
+            <small id="nota-legal">NOTA PENDIENTE: añadir aquí la información legal definitiva sobre privacidad.</small>
+          </div>
+
+          <div class="form-status" id="form-status" aria-live="polite" role="status"></div>
+          <button class="button button--primary submit-button" type="submit">Enviar confirmación</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <!-- CAMBIAR: nombres de la pareja y año -->
+    <p class="footer__names">[NOMBRE] <span>&amp;</span> [NOMBRE]</p>
+    <p>[AÑO]</p>
+    <p class="footer__note">Con cariño, para las personas que forman parte de nuestra historia.</p>
+  </footer>
+</body>
+</html>
